@@ -9,6 +9,13 @@ type PageProps = {
   params: Promise<{ id: string }>;
 };
 
+export async function generateStaticParams() {
+  // Generate static paths for all 30 days of Ramadan
+  return Array.from({ length: 30 }, (_, i) => ({
+    id: String(i + 1),
+  }));
+}
+
 export default async function DuaDetailPage({ params }: PageProps) {
   const { id } = await params;
   const day = Number(id);
@@ -41,4 +48,4 @@ export default async function DuaDetailPage({ params }: PageProps) {
       </div>
     </div>
   );
-};
+}
