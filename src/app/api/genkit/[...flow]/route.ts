@@ -1,4 +1,4 @@
-import { defineNextHandler } from '@genkit-ai/next';
+import defineNextHandler from '@genkit-ai/next';
 import '@/ai/dev';
 
 const handler = defineNextHandler({
