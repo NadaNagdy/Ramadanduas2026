@@ -30,6 +30,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Explicitly allow dynamic routes
+  experimental: {
+    serverActions: {
+      allowedOrigins: ['*'],
+    },
+  },
 };
 
 export default nextConfig;
