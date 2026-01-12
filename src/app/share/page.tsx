@@ -29,14 +29,16 @@ export default function ShareDuaPage() {
       return;
     }
     setIsRephrasing(true);
-   try {
-  const result = await rephraseDua({ intention: dua });
-  setDua(result.duaText);  // ✅ Changed from result.dua to result.duaText
-  toast({
-    title: "تمت إعادة الصياغة",
-    description: "تم تحسين دعاءك بفضل الذكاء الاصطناعي.",
-  });
-} catch (error) {
+    try {
+      const result = await rephraseDua({ intention: dua });
+      setDua(result.duaText);
+      toast({
+        title: "تمت إعادة الصياغة",
+        description: "تم تحسين دعاءك بفضل الذكاء الاصطناعي.",
+      });
+    } catch (error) {
+      console.error("Error rephrasing dua:", error);
+      toast({
         variant: "destructive",
         title: "خطأ",
         description: "حدث خطأ أثناء إعادة صياغة الدعاء. الرجاء المحاولة مرة أخرى.",
@@ -109,7 +111,7 @@ export default function ShareDuaPage() {
             />
           </div>
           <div>
-             <Label className="inline-block mb-3 font-cairo text-cream/80">نوع الدعاء</Label>
+            <Label className="inline-block mb-3 font-cairo text-cream/80">نوع الدعاء</Label>
             <RadioGroup dir="rtl" value={type} onValueChange={setType} className="flex justify-center gap-8">
               <div className="flex items-center space-x-2 space-x-reverse">
                 <RadioGroupItem value="public" id="public" className="text-gold border-gold/50" />
@@ -144,4 +146,4 @@ export default function ShareDuaPage() {
       </div>
     </div>
   );
-};
+}
