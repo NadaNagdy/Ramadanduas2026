@@ -1,4 +1,16 @@
-// Flows will be imported for their side effects in this file.
-import './flows/rephrase-dua-flow';
-import './flows/tts-flow';
-import './flows/generate-category-dua-flow';
+import { genkit, z } from 'genkit';
+
+export const ai = genkit({
+  plugins: [],
+});
+
+export const testFlow = ai.defineFlow(
+  {
+    name: 'testFlow',
+    inputSchema: z.string(),
+    outputSchema: z.string(),
+  },
+  async (input) => {
+    return `Hello from Genkit: ${input}`;
+  }
+);
