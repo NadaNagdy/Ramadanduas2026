@@ -1,8 +1,5 @@
-import { genkit } from 'genkit';
 import defineNextHandler from '@genkit-ai/next';
-import '@/ai/dev';
+import { testFlow } from '@/ai/dev';
 
-const ai = genkit({});
-const handler = defineNextHandler(ai);
-
-export { handler as GET, handler as POST };
+export const GET = defineNextHandler(testFlow);
+export const POST = defineNextHandler(testFlow);
