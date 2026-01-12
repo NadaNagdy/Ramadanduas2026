@@ -1,4 +1,5 @@
-import { defineNextHandler } from '@genkit-ai/next';
+// CORRECT
+import defineNextHandler from '@genkit-ai/next';
 import * as flows from '@/ai/dev'; // imports all exported flows
 
 const handler = defineNextHandler({
