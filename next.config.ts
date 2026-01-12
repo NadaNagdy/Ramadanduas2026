@@ -1,7 +1,7 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: undefined, // Explicitly not using static export
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized: false, // Enable image optimization (needs server)
     remotePatterns: [
       {
         protocol: 'https',
@@ -29,12 +30,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-  },
-  // Explicitly allow dynamic routes
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['*'],
-    },
   },
 };
 
