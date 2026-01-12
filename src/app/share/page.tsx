@@ -29,16 +29,14 @@ export default function ShareDuaPage() {
       return;
     }
     setIsRephrasing(true);
-    try {
-      const result = await rephraseDua({ intention: dua });
-      setDua(result.dua);
-      toast({
-        title: "تمت إعادة الصياغة",
-        description: "تم تحسين دعاءك بفضل الذكاء الاصطناعي.",
-      });
-    } catch (error) {
-      console.error("Error rephrasing dua:", error);
-      toast({
+   try {
+  const result = await rephraseDua({ intention: dua });
+  setDua(result.duaText);  // ✅ Changed from result.dua to result.duaText
+  toast({
+    title: "تمت إعادة الصياغة",
+    description: "تم تحسين دعاءك بفضل الذكاء الاصطناعي.",
+  });
+} catch (error) {
         variant: "destructive",
         title: "خطأ",
         description: "حدث خطأ أثناء إعادة صياغة الدعاء. الرجاء المحاولة مرة أخرى.",
