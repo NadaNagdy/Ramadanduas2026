@@ -1,9 +1,7 @@
-// CORRECT
 import defineNextHandler from '@genkit-ai/next';
-import * as flows from '@/ai/dev'; // imports all exported flows
+import '@/ai/dev'; // flows are registered here
 
-const handler = defineNextHandler({
-  flows: Object.values(flows), // converts all exports into an array
-});
+const handler = defineNextHandler(); // no arguments needed
 
 export { handler as GET, handler as POST };
+
